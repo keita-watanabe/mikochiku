@@ -1,20 +1,37 @@
 <header>
-  <nav class="navbar navbar-inverse navbar-static-top">
+  <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">MIKOCHIKU</a>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">会員登録</a></li>
-          <li><a href="#">ログイン</a></li>
-        </ul>
+      
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="row text-user">
+          <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+              <li><a href="#">マイページ</a></li>
+              <li rol="separator" class="diver"></li>
+              <li><%= link_to 'ログアウト', logout_path %></li>
+            <% else %>
+              <li><%= link_to '会員登録', signup_path %></li>
+              <li><%= link_to 'ログイン', login_path  %></li>
+            <% end %>
+          </ul>
+        </div>
+      
+          <ul class="menu navbar-nav navbar-under">
+            <li><a href="#"> 商品を探す</a></li>
+            <li><a href="#"> ユーザーを探す</a></li>
+            <li><a href="#"> 投稿する</a></li>
+          　<li><a href="#"> 商品ランキング</a></li>
+        　   <li><a href="#" >ユーザーランキング</a></li>
+          </ul>
+        </div>  
       </div>
     </div>
   </nav>
